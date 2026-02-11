@@ -1,0 +1,6 @@
+[package]
+name = "ls_kit"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["zengls"]
+license = "MIT"
