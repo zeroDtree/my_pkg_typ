@@ -30,8 +30,9 @@ else
     exit 1
 fi
 
+# Typst looks for @local packages under: {data_dir}/typst/packages/local/
 # Set target directory (using namespace)
-target_dir="$data_dir/$namespace/$package_name/$version"
+target_dir="$data_dir/typst/packages/$namespace/$package_name/$version"
 
 echo "Install directory: $target_dir"
 
@@ -43,6 +44,11 @@ fi
 
 # Create parent directory
 mkdir -p "$(dirname "$target_dir")"
+
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to create parent directory"
+    exit 1
+fi
 
 # Create symbolic link
 echo "Creating symbolic link..."
